@@ -1,0 +1,6 @@
+{
+  "name": "Hệ Thống Quản Lý Tiện Ích Web",
+  "description": "Hệ thống quản lý tài khoản, danh mục phân loại và liên kết trang web tích hợp Supabase cho Trường Đại học Kiến trúc Đà Nẵng (DAU).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
