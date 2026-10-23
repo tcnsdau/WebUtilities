@@ -106,7 +106,7 @@ export const LinkManagement: React.FC<LinkManagementProps> = ({
       'Đường dẫn liên kết': item.link,
       'Danh mục phân loại': categoryMap.get(item.phanloai) || `Nhóm #${item.phanloai}`,
       'Mô tả công dụng': item.mota || 'Không có mô tả',
-      'Hiệu lực': item.hieuluc ? 'Có hiệu lực (Hoạt động)' : 'Đã vô hiệu hóa (Tạm ngừng)',
+      'Hiệu lực': item.hieuluc ? 'Có hiệu lực' : 'Đã vô hiệu hóa',
       'Thời gian xuất': new Date().toLocaleString('vi-VN'),
     }));
 
@@ -484,12 +484,12 @@ export const LinkManagement: React.FC<LinkManagementProps> = ({
                           {item.hieuluc ? (
                             <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
                               <CheckCircle className="w-3 h-3 text-emerald-600" />
-                              Có hiệu lực (hoạt động)
+                              Có hiệu lực
                             </span>
                           ) : (
                             <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-50 text-rose-700 border border-rose-200">
                               <XCircle className="w-3 h-3 text-rose-500" />
-                              Đã vô hiệu hóa (Tạm ngừng)
+                              Đã vô hiệu hóa
                             </span>
                           )}
 
