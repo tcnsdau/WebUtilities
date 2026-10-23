@@ -589,8 +589,8 @@ export const LinkManagement: React.FC<LinkManagementProps> = ({
               )}
 
               <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1 uppercase tracking-wider">
-                  Tên Trang Web (ten)
+                <label className="block text-xs font-semibold text-red-700 mb-1 tracking-wider">
+                  Tên trang Web
                 </label>
                 <input
                   type="text"
@@ -603,7 +603,7 @@ export const LinkManagement: React.FC<LinkManagementProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1 uppercase tracking-wider">
+                <label className="block text-xs font-semibold text-red-700 mb-1 tracking-wider">
                   Đường dẫn Liên kết (link)
                 </label>
                 <input
@@ -617,7 +617,7 @@ export const LinkManagement: React.FC<LinkManagementProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1 uppercase tracking-wider">
+                <label className="block text-xs font-semibold text-red-700 mb-1 tracking-wider">
                   Phân loại trang Web
                 </label>
                 <select
@@ -634,7 +634,7 @@ export const LinkManagement: React.FC<LinkManagementProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1 uppercase tracking-wider">
+                <label className="block text-xs font-semibold text-red-700 mb-1 tracking-wider">
                   Mô tả chức năng trang Web
                 </label>
                 <textarea
@@ -655,7 +655,7 @@ export const LinkManagement: React.FC<LinkManagementProps> = ({
                   className="w-4 h-4 text-red-600 rounded border-slate-300 focus:ring-red-500"
                 />
                 <label htmlFor="formHieuLuc" className="text-xs font-medium text-slate-700 cursor-pointer">
-                  Kích hoạt hiệu lực hoạt động ngay (hieuluc = true)
+                  Kích hoạt hiệu lực hoạt động ngay
                 </label>
               </div>
 
@@ -665,14 +665,14 @@ export const LinkManagement: React.FC<LinkManagementProps> = ({
                   onClick={() => setIsModalOpen(false)}
                   className="px-4 py-2 border border-slate-300 rounded-xl text-xs font-medium text-slate-700 hover:bg-slate-100 transition-colors"
                 >
-                  Hủy Bỏ
+                  Hủy bỏ
                 </button>
                 <button
                   type="submit"
                   disabled={submitting}
                   className="px-4 py-2 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-700 hover:to-rose-700 text-white rounded-xl text-xs font-semibold shadow-xs transition-all flex items-center gap-1.5 disabled:opacity-50"
                 >
-                  {submitting ? 'Đang lưu...' : editingLink ? 'Lưu thay đổi' : 'Thêm trang Web'}
+                  {submitting ? 'Đang lưu...' : editingLink ? 'Lưu thay đổi' : 'Thêm mới'}
                 </button>
               </div>
             </form>
