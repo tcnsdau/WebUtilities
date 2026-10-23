@@ -184,7 +184,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, openCha
                 }`}
               >
                 <LayoutGrid className="w-4 h-4" />
-                Cổng Tra cứu Tiện ích
+                Cổng tra cứu Tiện ích
               </button>
             </nav>
 

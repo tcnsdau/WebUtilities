@@ -8,11 +8,38 @@ import { CategoryManagement } from './components/CategoryManagement';
 import { UserManagement } from './components/UserManagement';
 import { WebPortal } from './components/WebPortal';
 import { ChangePasswordModal } from './components/ChangePasswordModal';
-import { AlertCircle, CheckCircle2, ShieldCheck, Database, Building2 } from 'lucide-react';
+import { AlertCircle, Building2, Eye } from 'lucide-react';
 
 function MainApp() {
   const { currentUser, isAdmin } = useAuth();
   const [activeTab, setActiveTab] = useState<'links' | 'categories' | 'users' | 'portal'>('links');
+
+  // Bộ đếm số lượt truy cập Trang
+  const [visitCount, setVisitCount] = useState<number>(() => {
+    try {
+      const saved = localStorage.getItem('dau_web_visit_count');
+      const val = saved ? parseInt(saved, 10) : 1286;
+      return isNaN(val) ? 1286 : val;
+    } catch {
+      return 1286;
+    }
+  });
+
+  useEffect(() => {
+    try {
+      const sessionCounted = sessionStorage.getItem('dau_session_counted');
+      if (!sessionCounted) {
+        sessionStorage.setItem('dau_session_counted', 'true');
+        setVisitCount((prev) => {
+          const next = prev + 1;
+          localStorage.setItem('dau_web_visit_count', String(next));
+          return next;
+        });
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }, []);
 
   // Supabase Data State
   const [users, setUsers] = useState<UserRecord[]>([]);
@@ -173,15 +200,14 @@ function MainApp() {
             <span>Hệ thống Quản lý Tiện ích Web</span>
           </div>
 
-          <div className="flex items-center gap-4 text-slate-400">
+          <div className="flex items-center gap-4 text-slate-500">
             <span>Email: <strong className="text-slate-700">tcns@dau.edu.vn</strong></span>
             <span>•</span>
-            <span>Supabase: <strong className="text-slate-700">web-utiliti</strong></span>
-            <span>•</span>
-            <span className="text-emerald-600 font-medium flex items-center gap-1">
-              <CheckCircle2 className="w-3.5 h-3.5" />
-              Sẵn sàng hoạt động
-            </span>
+            <div className="flex items-center gap-1.5 px-3 py-1 bg-slate-50 rounded-lg border border-slate-200 text-slate-700 font-medium">
+              <Eye className="w-3.5 h-3.5 text-blue-600" />
+              <span>Số lượt truy cập:</span>
+              <span className="text-red-600 font-bold font-mono text-xs">{visitCount.toLocaleString('vi-VN')}</span>
+            </div>
           </div>
         </div>
       </footer>
